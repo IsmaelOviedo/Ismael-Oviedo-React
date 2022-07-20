@@ -1,15 +1,25 @@
 import './Navbar.css'
+import CartWidget from '../CartWidget/CartWidget'
 
 const Navbar = () => {
     return (
         <nav className='Navbar'>
-            <div>
+            <CartWidget />
+            <div className='titulo'>
                 <strong>AlainaStore</strong>
-            </div>
-            <div>
-                <button>Productos</button>
-                <button>Galeria</button>
-                <button>Contacto</button>
+
+                <li>
+                   Contacto
+                </li>
+                <li>
+                    Productos
+                </li>
+                <li>
+                    Galeria
+                </li>
+                <li>
+                    Inicio
+                </li>
             </div>
         </nav>
     )
