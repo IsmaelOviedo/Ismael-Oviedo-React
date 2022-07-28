@@ -1,3 +1,4 @@
+import './Item.css'
 
 
 const Item = ({id, name, img, price}) => {
@@ -17,6 +18,9 @@ const Item = ({id, name, img, price}) => {
                     Precio: ${price}
                 </p>
             </section>
+            <footer className='ItemFooter'>
+
+            </footer>
         </article>
     )
 }
