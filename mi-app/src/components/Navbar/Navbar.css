@@ -1,11 +1,11 @@
 
 * {
     margin: 0;
-    text-decoration: none;
-    list-style: none;
+    padding: 0;
     box-sizing: border-box;
 }
 .Navbar {
+    
     background-color: rgb(247, 202, 243);
 }
 .lista-nav {
@@ -17,11 +17,13 @@
     
 }
 .lista-nav li {
+    text-align: center;
+    display: flex;
+    justify-content: center;
     border-radius: 3px;
     margin: 0 5px;
     padding: 7px;
     font-size: 18px;
-    display: block;
     text-transform: uppercase;
     float: right;
 }

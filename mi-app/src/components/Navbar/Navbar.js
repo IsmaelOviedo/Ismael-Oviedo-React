@@ -10,9 +10,6 @@ const Navbar = () => {
                     Inicio
                 </li>
                 <li>
-                    Galeria
-                </li>
-                <li>
                     Productos
                 </li>
                 <li>

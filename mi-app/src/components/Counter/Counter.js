@@ -11,13 +11,13 @@ const Counter = ({ show, stock, initial }) => {
 
     const decrement = () => {
         if(count > initial) {
-            setCount (count - 1)
+            setCount (prev => prev - 1)
         }
     }
 
     const increment = () => {
         if(count < stock) {
-            setCount (count + 1)
+            setCount (prev => prev + 1)
         }
     }
     console.log('renderiza')
