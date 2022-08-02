@@ -1,10 +1,10 @@
 .CardItem {
-    width: 300px;
+    width: 500px;
     padding: 30px;
     margin: 30px;
     font-size: 10px;
-    background-color: rgb(179, 49, 151);
-    border: 1px solid #e1e1e1;
+    background-color: rgb(129, 93, 150);
+    border: 1px solid #000000;
     border-radius: 10px;
 }
 
@@ -48,8 +48,8 @@
 }
 
 .ItemImg {
-    width: 100px;
-    height: 200px;
+    width: 210px;
+    height: 320px;
     object-fit: cover;
     object-position: center;
 }

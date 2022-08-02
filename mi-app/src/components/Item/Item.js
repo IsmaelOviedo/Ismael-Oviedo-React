@@ -1,5 +1,6 @@
+import React from "react";
 import './Item.css'
-
+import { Link } from 'react-router-dom'
 
 const Item = ({id, name, img, price}) => {
     return (
@@ -17,12 +18,13 @@ const Item = ({id, name, img, price}) => {
                 className='Info'>
                     Precio: ${price}
                 </p>
+                <Link to={`/detail/${id}`} className='Option'>Ver detalle</Link>
             </section>
             <footer className='ItemFooter'>
-
             </footer>
         </article>
     )
 }
 export default Item
+
 

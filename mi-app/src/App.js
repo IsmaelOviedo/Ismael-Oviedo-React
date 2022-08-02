@@ -2,20 +2,27 @@
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import { useState } from 'react';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 
 function App() {
-  const [show, setShow] = useState(true)
-
   return (
     <div className="App">
-      <header className="App-header">
-
+     
+      <BrowserRouter>
         <Navbar />
-        <ItemListContainer show={show} setShow={setShow} greeting="AlainaStore"/>
+        <Routes>
+          <Route exact path='/' element={<ItemListContainer greeting="Alaina Store" />}/>
+          <Route exact path='/category/:categoryId' element={<ItemListContainer greeting="Estamos filtrando" />} />
+          <Route exact path='/detail/:productId' element={<ItemDetailContainer />} />
+        </Routes>
+      </BrowserRouter>
 
-      </header>
+
+        
+
+      
     </div>
   );
 }

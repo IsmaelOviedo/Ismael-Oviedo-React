@@ -1,11 +1,12 @@
+import React from "react";
 import './ItemDetail.css'
-import ItemCount from '../ItemCount/ItemCounter'
+import ItemCount from '../ItemCount/ItemCount'
 
-const ItemDetail = ({ id, name, category, img, price, stock, description}) => {
+function ItemDetail({id, name, category, img, price, stock, description }) {
 
     const handleOnAdd = (quantity) => {
-        console.log('agregue al carrito: ', quantity)
-    }
+        console.log('agregue al carrito: ', quantity);
+    };
 
     return (
         <article className="CardItem">
@@ -14,9 +15,10 @@ const ItemDetail = ({ id, name, category, img, price, stock, description}) => {
                     {name}
                 </h2>
             </header>
-            <picture>
-                <img src={img} alt={name} className="ItemImg"/>
-            </picture>
+            <div>
+                <img src="/imagenes/vestido-azul.jpg" alt={name} className="ItemImg" />
+            </div>
+
             <section>
                 <p className="Info">
                     Categoria: {category}
@@ -25,14 +27,14 @@ const ItemDetail = ({ id, name, category, img, price, stock, description}) => {
                     Descripción: {description}
                 </p>
                 <p className="Info">
-                    Precio: {price}
+                    Precio: ${price}
                 </p>
-            </section>           
+            </section>
             <footer className='ItemFooter'>
                 <ItemCount stock={stock} onAdd={handleOnAdd} />
             </footer>
         </article>
-    )
+    );
 }
 
 export default ItemDetail
