@@ -2,6 +2,7 @@ import React from "react";
 import './ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount'
 
+
 function ItemDetail({id, name, category, img, price, stock, description }) {
 
     const handleOnAdd = (quantity) => {
@@ -15,8 +16,8 @@ function ItemDetail({id, name, category, img, price, stock, description }) {
                     {name}
                 </h2>
             </header>
-            <div>
-                <img src="/imagenes/vestido-azul.jpg" alt={name} className="ItemImg" />
+            <div className="Container-Img">
+                <img src={img} alt={name} className="ItemImg" />
             </div>
 
             <section>
