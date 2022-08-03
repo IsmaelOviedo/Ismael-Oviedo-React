@@ -6,6 +6,12 @@
     background-color: rgb(129, 93, 150);
     border: 1px solid #000000;
     border-radius: 10px;
+    display: grid;
+    grid-template-columns:auto;
+    grid-auto-rows: minmax(auto);
+  
+  
+    
 }
 
 .ContainerItem {

@@ -34,30 +34,21 @@ const products = [
         name: 'Vestido Marron',
         price: 4500,
         category: 'Vestimenta',
-        img: '/imagenes/vestido-verde.png',
+        img: '/imagenes/vestido-marron.jpg',
         stock: 1,
-        description: 'Elegancia',  
+        description: 'Conjunto Marron de cuero',  
     },
     {
         id: '5',
         name: 'Vestido Leopardado',
         price: 2000,
         category: 'Vestimenta',
-        img: '/imagenes/vestido-verde.png',
+        img: '/imagenes/leopardado.jpg',
         stock: 6,
-        description: 'Elegancia',  
+        description: 'Vestido de seda estampado de leopardo',  
     },
 
-    {
-        id: '6',
-        name: 'Gorro Naranja',
-        price: 200,
-        category: 'Vestimenta',
-        img: '/imagenes/vestido-verde.png',
-        stock: 5,
-        description: 'Elegancia',  
-    },
-  
+ 
 ]
 
 export const getProducts = () => {
