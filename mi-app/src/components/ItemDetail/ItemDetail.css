@@ -34,6 +34,9 @@
 
 .Button {
     position: relative;
+    text-align: center;
+    top: 5%;
+    left: -20%;
     width: auto;
     padding: 12px;
     font-size: 8px;
@@ -82,8 +85,8 @@
 
 .agregar-carrito {
     position: relative;
-    left: 70%;
-    top: -20px;
+    left: 20%;
+    top: 5px;
     padding: 12px;
     font-size: 10px;
     background: #000000;
@@ -98,5 +101,15 @@
     text-decoration: none;
 }
 
+.ir-carrito {
+    text-decoration: none;
+    font-size: large;
+    color: #000000;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
+.ir-carrito:hover {
+    background-color: #ba84c7;
+    transition: all 0.8s;
+}
 

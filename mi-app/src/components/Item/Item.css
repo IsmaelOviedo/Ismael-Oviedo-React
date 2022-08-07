@@ -58,3 +58,15 @@
     display: flex;
     justify-content: center;
 }
+
+.Option {
+    text-decoration: none;
+    font-size: large;
+    color: #000000;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.Option:hover {
+    background-color: #ba84c7;
+    transition: all 0.8s;
+}

@@ -1,25 +1,76 @@
-import React from "react";
 import './ItemDetail.css'
+import { useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
+import { Link } from 'react-router-dom'
+
+const InputCount = ({onConfirm, stock, initial= 1}) => {
+    const [count, setCount] = useState(initial)
+
+    const handleChange = (e) => {
+        if(e.target.value <= stock) {
+            setCount(e.target.value)
+        }
+    }
+
+    return (
+        <div>
+            <input className='Button' type='number' onChange={handleChange} value={count}/>
+            <button className='agregar-carrito' onClick={() => onConfirm(count)}>Agregar al carrito</button>
+        </div>
+    )
+}
+
+const ButtonCount = ({ onConfirm, stock, initial = 1 }) => {
+    const [count, setCount] = useState(initial)
+
+    const increment = () => {
+        if(count < stock) {
+            setCount(count + 1)
+        }
+
+    }
+
+    const decrement = () => {
+            setCount(count - 1)
+
+    }
+
+    return (
+        <div>
+            <p>{count}</p>
+            <button onClick={decrement}>-</button>
+            <button onClick={increment}>+</button>
+            <button onClick={() => onConfirm(count)}>Agregar al carrito</button>
+        </div>
+    )
+}
 
 
-function ItemDetail({id, name, category, img, price, stock, description }) {
+const ItemDetail = ({ id, name, category, img, price, stock, description}) => {
+    const [inputType, setInputType] = useState('input')
+    const [quantity, setQuantity] = useState(0)
+
+    const ItemCount = inputType === 'input' ? InputCount : ButtonCount
 
     const handleOnAdd = (quantity) => {
-        console.log('agregue al carrito: ', quantity);
-    };
+        console.log('agregue al carrito: ', quantity)
+        setQuantity(quantity)
+    }
 
     return (
         <article className="CardItem">
+           
             <header className="Header">
                 <h2 className="ItemHeader">
                     {name}
                 </h2>
             </header>
-            <div className="Container-Img">
-                <img src={img} alt={name} className="ItemImg" />
+            <div className='Container-Img'>
+                <img src={img} alt={name} className= 'ItemImg' />
             </div>
-
+            
+                
+          
             <section>
                 <p className="Info">
                     Categoria: {category}
@@ -28,14 +79,14 @@ function ItemDetail({id, name, category, img, price, stock, description }) {
                     Descripción: {description}
                 </p>
                 <p className="Info">
-                    Precio: ${price}
+                    Precio: {price}
                 </p>
-            </section>
+            </section>           
             <footer className='ItemFooter'>
-                <ItemCount stock={stock} onAdd={handleOnAdd} />
+                { quantity > 0 ? <Link  className='ir-carrito' to='/cart'>Ir al carrito</Link> : <ItemCount stock={stock} onConfirm={handleOnAdd} />}
             </footer>
         </article>
-    );
+    )
 }
 
 export default ItemDetail
