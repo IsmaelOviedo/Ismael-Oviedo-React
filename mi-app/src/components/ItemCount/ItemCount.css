@@ -1,0 +1,15 @@
+.Button-Item {
+    position: relative;
+    text-align: center;
+    top: 5%;
+    left: -20%;
+    width: auto;
+    padding: 12px;
+    font-size: 8px;
+    background: #000000;
+    border-radius: 8px;
+    color: #FFFFFF;
+    border: none;
+    border-style: none;
+  
+}
