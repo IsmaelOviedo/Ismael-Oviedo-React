@@ -10,8 +10,8 @@ const Notification = ({ message, severity, classes}) => {
       width: 'auto',
       height: 'auto',
       padding: '10px 20px 10px 20px',
-      color: 'white',
-      backgroundColor: severity === 'success' ? 'green' : 'red'
+      color: 'black',
+      backgroundColor: severity === 'success' ? 'green' : 'pink'
     }
   
     if(message === '') return
