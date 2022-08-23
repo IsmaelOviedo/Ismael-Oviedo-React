@@ -1,5 +1,6 @@
 import { useContext } from "react"
-import { CartContext } from '../../context/CartContext'
+import { useState } from "react";
+import { CartContext } from '../../Context/CartContext'
 import { addDoc, collection, Timestamp,  getDocs, query, where, documentId, writeBatch } from 'firebase/firestore'
 import { db } from '../../services/firebase/index'
 
@@ -11,9 +12,9 @@ const Checkout = () => {
         try {
             const objOrder = {
                 buyer: {
-                    name: 'Sebastian Zuviria',
-                    phone: '123456789',
-                    email: 'seba@mail.com'
+                    name: '--',
+                    phone: '--',
+                    email: '--',
                 },
                 items: cart,
                 total,
