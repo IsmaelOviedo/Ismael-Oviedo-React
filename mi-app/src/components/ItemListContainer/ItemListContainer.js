@@ -1,53 +1,32 @@
-import { useState, useEffect } from 'react'
-import { getProducts, getProductsByCategory } from "../../asyncMock"
+
+
 import ItemList from '../ItemList/ItemList'
+import { getProducts } from '../../services/firebase/firestore'
 import { useParams } from 'react-router-dom' 
+import { useAsync } from '../../hooks/useAsync'
+import { fetcher } from '../../utils/fetcher'
 
 const ItemListContainer = ({ greeting }) => {
-    const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
-
     const { categoryId } = useParams()
 
-    useEffect(() => {
-        const asyncFunction = categoryId ? getProductsByCategory : getProducts
-        
-        asyncFunction(categoryId).then(response => {
-            setProducts(response)
-        }).catch(error => {
-            console.log(error)
-        }).finally(() => {
-            setLoading(false)
-        })  
+    const { isLoading, data, error } = useAsync(fetcher(getProducts, categoryId), [categoryId])
 
+    if(isLoading) {
+        return <h1>Nuestros Productos estan Cargando..</h1>
+    }
 
-        // if(categoryId) {
-        //     getProductsByCategory(categoryId).then(response => {
-        //         setProducts(response)
-        //     }).catch(error => {
-        //         console.log(error)
-        //     }).finally(() => {
-        //         setLoading(false)
-        //     })  
-        // } else {
-        //     getProducts().then(response => {
-        //         setProducts(response)
-        //     }).catch(error => {
-        //         console.log(error)
-        //     }).finally(() => {
-        //         setLoading(false)
-        //     }) 
-        // }
-    }, [categoryId])
+    if(error) {
+        return <h1>Ocurrio un error</h1>
+    }
 
-    if(loading) {
-        return <h1>Cargando productos...</h1>
+    if(data.length === 0) {
+        return categoryId ? <h1>Ningun producto en categoria {categoryId}</h1> : <h1>No hay productos</h1>
     }
 
     return (
-        <>
-            <h1>{greeting}</h1>
-            <ItemList products={products} />
+        <> 
+            <h1>{`${greeting} ${categoryId || ''}`}</h1>
+            <ItemList products={data} />
         </>
     )
 }

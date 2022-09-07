@@ -18,7 +18,7 @@ function App() {
   <UserContextProvider>
     <CartContextProvider>
       <BrowserRouter>
-        <Navbar />
+        <Navbar/>
         <Routes>
           <Route exact path='/inicio' element={<ItemListContainer greeting="AlainaStore" />}/>
           <Route exact path='/productos' element={<ItemListContainer greeting="Estamos filtrando" />} />
